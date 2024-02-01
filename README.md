@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a355141b19f5fdbc2672/maintainability)](https://codeclimate.com/github/AndreiZaikin/frontend-project-44/maintainability)
 
 ### Asciinema 5-th step [here](https://asciinema.org/a/gBBOVLLzcPPgujDBdm07aIBtv)
+### Asciinema 6-th step [here](https://asciinema.org/a/xpNlJr82GHfRYdetc0Zd1vWdj)
