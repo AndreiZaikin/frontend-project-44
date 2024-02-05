@@ -6,3 +6,4 @@
 ### Asciinema 6-th step [here](https://asciinema.org/a/xpNlJr82GHfRYdetc0Zd1vWdj)
 ### Asciinema 7-th step [here](https://asciinema.org/a/phfGyAF0K9ybXgKolnhXXaNFV)
 ### Asciinema 8-th step [here](https://asciinema.org/a/MfGCjIYaIfHZytmtOt2OjE6WI)
+### Asciinema 9-th step [here](https://asciinema.org/a/6JKgTuXKIwBrhIw4npB5lwHfU)
