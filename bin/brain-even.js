@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import gameEven from '../src/even-odd.js';
+import gameEven from '../src/games/even.js';
 
-const result = gameEven();
+gameEven();
