@@ -1,5 +1,10 @@
 import gameCore from '../index.js';
 
+const rules = 'What number is missing in the progression?';
+const level = 100;
+const maxQty = 10;
+const maxStep = 10;
+
 function getProgression(a1, step, qty, pos) {
   const arr = [];
   let ai = 0;
@@ -15,26 +20,15 @@ function getProgression(a1, step, qty, pos) {
   return [arr.join(' '), `${correctAnswer}`];
 }
 
-function getExpression(level, maxQty, maxStep) {
+const getExpression = () => {
   const minQty = 5;
   const a1 = Math.floor(Math.random() * level);
   const step = 1 + Math.floor(Math.random() * maxStep);
   const qty = minQty + Math.floor(Math.random() * (maxQty - minQty));
   const pos = Math.round(Math.random() * qty);
   return getProgression(a1, step, qty, pos);
-}
+};
 
-function getGameParameters(level, rounds, maxQty, maxStep) {
-  const gameParameters = [];
-  gameParameters.push('What number is missing in the progression?');
-  const questionPairs = [];
-  for (let i = 0; i < rounds; i += 1) {
-    questionPairs.push(getExpression(level, maxQty, maxStep));
-  }
-  gameParameters.push(questionPairs);
-  return gameParameters;
-}
-
-export default function game(level = 100, rounds = 3, maxQty = 10, maxStep = 10) {
-  gameCore(getGameParameters(level, rounds, maxQty, maxStep));
+export default function game() {
+  gameCore(rules, getExpression);
 }

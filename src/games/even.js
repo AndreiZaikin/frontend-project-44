@@ -1,22 +1,15 @@
 import gameCore from '../index.js';
+import getRndNumber from '../utils.js';
 
-function getExpression(level) {
-  const a = Math.round(Math.random() * level);
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const level = 100;
+
+const getExpression = () => {
+  const a = getRndNumber(level);
   const correctAnswer = a % 2 === 0 ? 'yes' : 'no';
   return [`${a}`, `${correctAnswer}`];
-}
+};
 
-function getGameParameters(level, rounds) {
-  const gameParameters = [];
-  gameParameters.push('Answer "yes" if the number is even, otherwise answer "no".');
-  const questionPairs = [];
-  for (let i = 0; i < rounds; i += 1) {
-    questionPairs.push(getExpression(level));
-  }
-  gameParameters.push(questionPairs);
-  return gameParameters;
-}
-
-export default function game(level = 100, rounds = 3) {
-  gameCore(getGameParameters(level, rounds));
+export default function game() {
+  gameCore(rules, getExpression);
 }

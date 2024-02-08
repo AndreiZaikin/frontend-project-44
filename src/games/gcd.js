@@ -1,4 +1,8 @@
 import gameCore from '../index.js';
+import getRndNumber from '../utils.js';
+
+const rules = 'Find the greatest common divisor of given numbers.';
+const level = 20;
 
 function getGsd(a, b) {
   if (b === 0) {
@@ -7,23 +11,12 @@ function getGsd(a, b) {
   return getGsd(b, a % b);
 }
 
-function getExpression(level) {
-  const a = 1 + Math.floor(Math.random() * level);
-  const b = 1 + Math.floor(Math.random() * level);
+const getExpression = () => {
+  const a = 1 + getRndNumber(level);
+  const b = 1 + getRndNumber(level);
   return [`${a} ${b}`, `${getGsd(a, b)}`];
-}
+};
 
-function getGameParameters(level, rounds) {
-  const gameParameters = [];
-  gameParameters.push('Find the greatest common divisor of given numbers.');
-  const questionPairs = [];
-  for (let i = 0; i < rounds; i += 1) {
-    questionPairs.push(getExpression(level));
-  }
-  gameParameters.push(questionPairs);
-  return gameParameters;
-}
-
-export default function game(level = 100, rounds = 3) {
-  gameCore(getGameParameters(level, rounds));
+export default function game() {
+  gameCore(rules, getExpression);
 }

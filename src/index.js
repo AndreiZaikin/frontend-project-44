@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const rounds = 3;
+
 function getName() {
   const welcomeText = 'Welcome to the Brain Games!\nMay I have your name? ';
   return readlineSync.question(welcomeText);
@@ -19,12 +21,16 @@ function makeTest(questionPairs) {
   return true;
 }
 
-export default function core(GameParameters) {
+export default function core(rules, getExpression) {
   const name = getName();
   console.log(`Hello, ${name}!`);
-
-  const [rules, questionPairs] = GameParameters;
   console.log(rules);
+
+  const questionPairs = [];
+  for (let i = 0; i < rounds; i += 1) {
+    questionPairs.push(getExpression());
+  }
+
   const result = makeTest(questionPairs);
   if (result === true) {
     console.log(`Congratulations, ${name}!`);

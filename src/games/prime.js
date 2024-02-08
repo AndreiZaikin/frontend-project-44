@@ -1,4 +1,8 @@
 import gameCore from '../index.js';
+import getRndNumber from '../utils.js';
+
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const level = 100;
 
 function getPrime(a) {
   for (let i = 2; i < a; i += 1) {
@@ -9,22 +13,11 @@ function getPrime(a) {
   return [`${a}`, 'yes'];
 }
 
-function getExpression(level) {
-  const a = 1 + Math.floor(Math.random() * level);
+const getExpression = () => {
+  const a = 2 + getRndNumber(level);
   return getPrime(a);
-}
+};
 
-function getGameParameters(level, rounds) {
-  const gameParameters = [];
-  gameParameters.push('Answer "yes" if given number is prime. Otherwise answer "no".');
-  const questionPairs = [];
-  for (let i = 0; i < rounds; i += 1) {
-    questionPairs.push(getExpression(level));
-  }
-  gameParameters.push(questionPairs);
-  return gameParameters;
-}
-
-export default function game(level = 100, rounds = 3) {
-  gameCore(getGameParameters(level, rounds));
+export default function game() {
+  gameCore(rules, getExpression);
 }
